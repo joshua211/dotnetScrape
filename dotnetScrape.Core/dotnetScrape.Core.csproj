@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack.NetCoreCodePages" Version="1.5.0.2" />
+    <PackageReference Include="Jint" Version="2.10.3" />
+    <PackageReference Include="Knyaz.Optimus" Version="3.0.0-alpha-219" />
+    <PackageReference Include="Knyaz.Optimus.Scripting.Jint" Version="1.0.0-alpha-16" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
