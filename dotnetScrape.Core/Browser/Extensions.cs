@@ -66,5 +66,11 @@ namespace dotnetScrape.Core.Browser
             foreach (var e in elements)
                 yield return (HtmlElement)e;
         }
+
+        public static IEnumerable<HtmlElement> ToHtmlElements(this NodeList list)
+        {
+            foreach (var l in list)
+                yield return (HtmlElement)l;
+        }
     }
 }

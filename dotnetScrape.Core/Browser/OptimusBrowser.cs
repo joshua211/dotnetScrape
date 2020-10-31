@@ -26,7 +26,7 @@ namespace dotnetScrape.Core.Browser
             engine = executeJs ? EngineBuilder.New().UseJint().Build()
                                 : EngineBuilder.New().Build();
 
-            engine.UseKnownUserAgent(KnownUserAgents.Windows_Firefox);
+            //engine.UseKnownUserAgent(KnownUserAgents.Linux_Chromium);
             State = new BrowserState()
             {
                 History = new Stack<string>(),
@@ -82,7 +82,7 @@ namespace dotnetScrape.Core.Browser
             switch (selector.Type)
             {
                 case SelectorType.Css:
-                    return engine.Document.QuerySelectorAll(selector.Query) as IEnumerable<HtmlElement>;
+                    return engine.Document.QuerySelectorAll(selector.Query).ToHtmlElements();
                 case SelectorType.Id:
                     return new List<HtmlElement>() { engine.Document.GetElementById(selector.Query) as HtmlElement };
                 default:
@@ -117,7 +117,6 @@ namespace dotnetScrape.Core.Browser
         public async Task<T> ExecuteTaskAsync<T>(IScrapingTask<T> task)
         {
             var result = await Task.Run(() => task.Run(this));
-
             return result;
         }
 
